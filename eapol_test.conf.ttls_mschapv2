@@ -1,0 +1,10 @@
+network={
+	eap=TTLS
+	eapol_flags=0
+	key_mgmt=IEEE8021X
+	identity="qa"
+	password="password"
+	anonymous_identity="anonymous"
+	ca_cert="/etc/freeradius/3.0/certs/ca.pem"
+	phase2="autheap=MSCHAPV2"
+}

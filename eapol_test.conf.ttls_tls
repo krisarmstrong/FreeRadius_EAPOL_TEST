@@ -1,0 +1,19 @@
+network={
+	key_mgmt=WPA-EAP
+	eap=TTLS
+	eapol_flags=0
+	key_mgmt=IEEE8021X
+	anonymous_identity="anonymous"
+	ca_cert="/etc/freeradius/3.0/certs/ca.pem"
+
+	# Phase 2 / inner authentication
+	phase2="autheap=TLS"
+	identity="test"
+	ca_cert2="/etc/freeradius/3.0/certs/ca.pem"
+        client_cert2="/etc/freeradius/3.0/certs/user1024sha1@example.org.pem"
+        private_key2="/etc/freeradius/3.0/certs/user1024sha1@example.org.pem"
+        private_key2_passwd="changeme"
+	priority=2
+
+}
+

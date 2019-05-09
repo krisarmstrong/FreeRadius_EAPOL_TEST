@@ -1,0 +1,11 @@
+network={
+	eap=TLS
+	eapol_flags=0
+	key_mgmt=IEEE8021X
+	identity="testuser"
+	ca_cert="/etc/freeradius/3.0/certs/ca.pem"
+ 	client_cert="/etc/freeradius/3.0/certs/user2048sha512@example.org.pem"
+ 	private_key="/etc/freeradius/3.0/certs/user2048sha512@example.org.pem"
+	private_key_passwd="changeme"
+}
+
