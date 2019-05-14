@@ -31,6 +31,28 @@ Explain what these tests test and why
 
 Give an example
 
+### Example Output
+Current Configuration
+IP Address:		127.0.0.1
+Port #:			1812
+Secret Key:		testing123
+Private Key:		Shaebug:2014
+User ID (Identity):	qa
+Password:		password
+EAP-TLS - certs/kris.armstrong@2048minion.lab.pem - SUCCESSFUL
+EAP-TLS - certs/kris.armstrong@4096minion.lab.pem - SUCCESSFUL
+EAP-TLS - certs/kris.armstrong@8192minion.lab.pem - SUCCESSFUL
+TTLS-TLS - certs/kris.armstrong@2048minion.lab.pem - SUCCESSFUL
+TTLS-TLS - certs/kris.armstrong@4096minion.lab.pem - SUCCESSFUL
+TTLS-TLS - certs/kris.armstrong@8192minion.lab.pem - SUCCESSFUL
+PEAP-TLS - certs/kris.armstrong@2048minion.lab.pem - SUCCESSFUL
+PEAP-TLS - certs/kris.armstrong@4096minion.lab.pem - SUCCESSFUL
+PEAP-TLS - certs/kris.armstrong@8192minion.lab.pem - SUCCESSFUL
+PEAP-MSChapV2 - SUCCESSFUL
+TTLS-MD5 - SUCCESSFUL
+TTLS-MSChapV2 - SUCCESSFUL
+EAP-FAST - FAILED
+
 ### Deployment
 Add additional notes about how to deploy this on a live system
 
@@ -51,5 +73,3 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 ### Acknowledgments
 Hat tip to anyone whose code was used
-Inspiration
-etc

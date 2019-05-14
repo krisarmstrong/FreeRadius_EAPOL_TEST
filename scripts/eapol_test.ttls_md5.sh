@@ -3,17 +3,16 @@
 #AUTHOR: Kris Armstrong
 #DATE: May 7, 2019
 
-ttls_md5_config=../conf/eapol_test.ttls_md5.conf
+source conf/main.conf
+
+# Setting Identity and Password from main.conf
+sed -i "/identity=/c\ \tidentity=\"$identity\"" "$ttls_md5_conf"
+sed -i "/password=/c\ \tpassword=\"$password\"" "$ttls_md5_conf"
 
 
-# eapol_test -c config -a127.0.0.1 -p1812 -s testing123 -r1
-
-if eapol_test -c ttls_md5_config -a$1 -p$2 -s $3 -r1 | grep -q 'SUCCESS'; then
+if eapol_test -c "$ttls_md5_conf" -a "$ipaddress" -p "$port" -s "$secretkey" -r1 | grep -q 'SUCCESS'; then
 	echo "TTLS-MD5 - SUCCESSFUL"
 else
 	echo "TTLS-MD5 -FAILED"
 
 fi;
-
-
-

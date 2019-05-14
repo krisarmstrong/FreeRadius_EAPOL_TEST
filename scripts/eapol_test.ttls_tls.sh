@@ -1,27 +1,39 @@
 #!/bin/bash
-#APP: FreeRadius V3.x.x EAPOL TTLS-MSChapV2 Test
+#APP: FreeRadius V3.x.x EAPOL TLS Test
 #AUTHOR: Kris Armstrong
 #DATE: May 7, 2019
 
-ttls_tls_config=../conf/eapol_test.ttls_tls.conf
+source conf/main.conf
 
-
-SOURCE_DIR=/etc/freeradius/3.0/certs
+SOURCE_DIR="$client_cert_dir"
 files=(
-   "$SOURCE_DIR"/user*.pem
-   )
+   "$SOURCE_DIR""$client_cert"*.*
+)
 
-   for i in "${files[@]}"
-   do
-	# eapol_test -c eapol_test.conf.ttls_tls -a127.0.0.1 -p1812 -s testing123 -r1
+for i in "${files[@]}"
+do
+        if [ "$i" == "*.p12" ]; then
+                echo "Test $i"
 
-	if eapol_test -c ttls_tls_config -a$1 -p$2 -s $3 -r1 | grep -q 'SUCCESS'; then
-		echo "TTLS-TLS - $i - SUCCESSFUL"
-	else
-		echo "TTLS-TLS - $i - FAILED"
+                # Commenting out Cert for P12 per WPA_Supplicant
+                sed -i "/client_cert2=/c\ #\tclient_cert2=\"$i\"" "$ttls_tls_conf"
+                sed -i "/private_key2=/c\ \tprivate_key2=\"$i\"" "$ttls_tls_conf"
 
-	fi;
+                if eapol_test -c "$ttls_tls_conf" -a "$ipaddress" -p "$port" -s "$secretkey" -r1 | grep -q 'SUCCESS'; then
+                        echo "TTLS-TLS - $i - SUCCESSFUL"
+                else
+                        echo "TTLS-TLS - $i - FAILED"
+                fi;
+
+        else
+                # Replacing client_cert= & private_key= with new key and cert
+                sed -i "/client_cert2=/c\ \tclient_cert2=\"$i\"" "$ttls_tls_conf"
+                sed -i "/private_key2=/c\ \tprivate_key2=\"$i\"" "$ttls_tls_conf"
+
+                if eapol_test -c "$ttls_tls_conf" -a "$ipaddress" -p "$port" -s "$secretkey" -r1 | grep -q 'SUCCESS'; then
+                        echo "TTLS-TLS - $i - SUCCESSFUL"
+                else
+                        echo "TTLS-TLS - $i - FAILED"
+                fi;
+        fi;
 done
-
-# eapol_test -c eapol_test.conf.ttls_tls -a127.0.0.1 -p1812 -s testing123 -r1
-

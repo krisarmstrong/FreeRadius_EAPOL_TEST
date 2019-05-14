@@ -3,26 +3,38 @@
 #AUTHOR: Kris Armstrong
 #DATE: May 7, 2019
 
-tls_config=../conf/eapol_test.tls.conf
+source conf/main.conf
 
-SOURCE_DIR=/etc/freeradius/3.0/certs
+SOURCE_DIR="$client_cert_dir"
 files=(
-   "$SOURCE_DIR"/user*.pem
+   "$SOURCE_DIR""$client_cert"*.*
 )
 
 for i in "${files[@]}"
 do
+	if [ "$i" == "*.p12" ]; then
+		echo "Test $i"
+    	
+    		# Commenting out Cert for P12 per WPA_Supplicant
+    		sed -i "/client_cert=/c\ #\tclient_cert=\"$i\"" "$tls_conf"
+		sed -i "/private_key=/c\ \tprivate_key=\"$i\"" "$tls_conf"
 
-	# Replacing client_cert= & private_key= with new key and cert
-    sed -i "/client_cert=/c\ \tclient_cert=\"$i\"" tls_config
-	sed -i "/private_key=/c\ \tprivate_key=\"$i\"" tls_config 
-	if eapol_test -c tls_config -a$1 -p$2 -s $3 -r1 | grep -q 'SUCCESS'; then
-		echo "TLS - $i - SUCCESSFUL"
+		if eapol_test -c "$tls_conf" -a "$ipaddress" -p "$port" -s "$secretkey" -r1 | grep -q 'SUCCESS'; then
+			echo "EAP-TLS - $i - SUCCESSFUL"
+		else
+			echo "EAP-TLS - $i - FAILED"
+		fi;
+
 	else
-		echo "TLS - $i - FAILED"
+		# Replacing client_cert= & private_key= with new key and cert
+		sed -i "/client_cert=/c\ \tclient_cert=\"$i\"" "$tls_conf"
+		sed -i "/private_key=/c\ \tprivate_key=\"$i\"" "$tls_conf"
 
+		if eapol_test -c "$tls_conf" -a "$ipaddress" -p "$port" -s "$secretkey" -r1 | grep -q 'SUCCESS'; then
+			echo "EAP-TLS - $i - SUCCESSFUL"
+		else
+			echo "EAP-TLS - $i - FAILED"
+		fi;
 	fi;
 done
-
-# eapol_test -c eapol_test.conf.tls -a127.0.0.1 -p1812 -s testing123 -r1
 
