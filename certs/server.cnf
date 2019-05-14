@@ -1,3 +1,4 @@
+
 [ ca ]
 default_ca		= CA_default
 
@@ -40,15 +41,15 @@ emailAddress		= optional
 [ req ]
 prompt			= no
 distinguished_name	= server
-default_bits		= 2048
-input_password		= Shaebug:2014
-output_password		= Shaebug:2014
+default_bits		= 4096
+input_password		= changeme
+output_password		= changeme
 
 [server]
 countryName		= US
 stateOrProvinceName	= Colorado
-localityName		= Engineering
-organizationName	= Minion Lab
-emailAddress		= admin@minion.lab
-commonName		= "freeradius.minion.lab"
+localityName		= Colorado Springs
+organizationName	= LinkRunner Engineering
+emailAddress		= admin@linkrunner.org
+commonName		= "LinkRunner Engineering Server Certificate"
 

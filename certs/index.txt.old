@@ -1,2 +1,15 @@
-V	290322173808Z		05	unknown	/C=US/ST=Colorado/O=Minion Lab/CN=freeradius.minion.lab/emailAddress=admin@minion.lab
-V	290505153304Z		07	unknown	/C=US/ST=Colorado/O=Minion Lab/CN=kris.armstrong@4096minion.lab/emailAddress=kris.armstrong@4096minion.lab
+V	290205163523Z		01	unknown	/C=US/ST=Colorado/O=LinkRunner Engineering/CN=LinkRunner Engineering Server Certificate/emailAddress=admin@linkrunner.org
+V	290205163523Z		02	unknown	/C=US/ST=Colorado/O=LinkRunner Engineering/CN=user1024sha256@example.org/emailAddress=user1024sha256@example.org
+V	290205163729Z		03	unknown	/C=US/ST=Colorado/O=LinkRunner Engineering/CN=user2048sha256@example.org/emailAddress=user2048sha256@example.org
+V	290205163830Z		04	unknown	/C=US/ST=Colorado/O=LinkRunner Engineering/CN=user4096sha256@example.org/emailAddress=user4096sha256@example.org
+V	290205163933Z		05	unknown	/C=US/ST=Colorado/O=LinkRunner Engineering/CN=user8192sha256@example.org/emailAddress=user8192sha256@example.org
+V	290205164819Z		06	unknown	/C=US/ST=Colorado/O=LinkRunner Engineering/CN=user16384sha256@example.org/emailAddress=user16384sha256@example.org
+V	290205165204Z		07	unknown	/C=US/ST=Colorado/O=LinkRunner Engineering/CN=user16384sha1@example.org/emailAddress=user16384sha1@example.org
+V	290205165348Z		08	unknown	/C=US/ST=Colorado/O=LinkRunner Engineering/CN=user8192sha1@example.org/emailAddress=user8192sha1@example.org
+V	290205165445Z		09	unknown	/C=US/ST=Colorado/O=LinkRunner Engineering/CN=user4096sha1@example.org/emailAddress=user4096sha1@example.org
+V	290205165629Z		0A	unknown	/C=US/ST=Colorado/O=LinkRunner Engineering/CN=user2048sha1@example.org/emailAddress=user2048sha1@example.org
+V	290205165749Z		0B	unknown	/C=US/ST=Colorado/O=LinkRunner Engineering/CN=user1024sha1@example.org/emailAddress=user1024sha1@example.org
+V	290205180851Z		0C	unknown	/C=US/ST=Colorado/O=LinkRunner Engineering/CN=user1024sha512@example.org/emailAddress=user1024sha512@example.org
+V	290205180951Z		0D	unknown	/C=US/ST=Colorado/O=LinkRunner Engineering/CN=user2048sha512@example.org/emailAddress=user2048sha512@example.org
+V	290205181057Z		0E	unknown	/C=US/ST=Colorado/O=LinkRunner Engineering/CN=user4096sha512@example.org/emailAddress=user4096sha512@example.org
+V	290205181215Z		0F	unknown	/C=US/ST=Colorado/O=LinkRunner Engineering/CN=user8192sha512@example.org/emailAddress=user8192sha512@example.org

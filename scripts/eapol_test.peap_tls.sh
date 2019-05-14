@@ -16,8 +16,8 @@ do
                 echo "Test $i"
 
                 # Commenting out Cert for P12 per WPA_Supplicant
-                sed -i "/client_cert=/c\ #\tclient_cert=\"$i\"" "$peap_tls_conf"
-                sed -i "/private_key=/c\ \tprivate_key=\"$i\"" "$peap_tls_conf"
+                sed -i "/client_cert2=/c\ #\tclient_cert2=\"$i\"" "$peap_tls_conf"
+                sed -i "/private_key2=/c\ \tprivate_key2=\"$i\"" "$peap_tls_conf"
 
                 if eapol_test -c "$peap_tls_conf" -a "$ipaddress" -p "$port" -s "$secretkey" -r1 | grep -q 'SUCCESS'; then
                         echo "PEAP-TLS - $i - SUCCESSFUL"

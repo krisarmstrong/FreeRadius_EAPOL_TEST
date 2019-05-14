@@ -42,17 +42,17 @@ emailAddress		= optional
 prompt			= no
 distinguished_name	= certificate_authority
 default_bits		= 4096
-input_password		= Shaebug:2014
-output_password		= Shaebug:2014
+input_password		= changeme
+output_password		= changeme
 x509_extensions		= v3_ca
 
 [certificate_authority]
 countryName		= US
-stateOrProvinceName	= Colorado
-localityName		= Engineering
-organizationName	= Minion Lab
-emailAddress		= admin@minion.lab
-commonName		= "Minion Lab FreeRadius CA"
+stateOrProvinceName	= Colorado 
+localityName		= Colorado Springs
+organizationName	= LinkRunner Engineering
+emailAddress		= admin@linkrunner.org
+commonName		= "LinkRunner Engineering Certificate Authority"
 
 [v3_ca]
 subjectKeyIdentifier	= hash
